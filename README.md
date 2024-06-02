@@ -8,3 +8,6 @@ The reason why I find it interesting to work on this idea is because in a hospit
 
 # Context 
 As I already said, in a hospital is really necesary to keep a good organization between doctors, patients, schedules and medicines, so making a programm like this will help, in a fictional hospital context, to maintain this order and record all the data necessary to maintain a good organization in this fictitious hospital. So mainly, this will be the purpose of my project.
+
+# Solution
+To resolve this problem, I will work on a project where I will have this imaginary hospital where I will have to create classes that will help to maintain a correct organization of the patient's information, this includes their personal data, the doctors and nurses who will care for them and also the type of medicines that they need to take, how often and how much they should take those medicines and what are the appointments they will have with the doctors. So under that premise, I will create an abstract class in which I'll create the classes Patient, Doctor and Nurse; I will create other classes known as Medicament and Appointments which will be directly related to the patient class, and finally, all this will be finally related in a Expedient class, which will serve as a model for the message that will be sent in the main.
