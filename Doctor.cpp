@@ -3,6 +3,7 @@ using namespace std;
 
 Doctor::Doctor(){
   name = "";
+  lastName = "";
   age = 0;
   sex = "";
   specialty = "";

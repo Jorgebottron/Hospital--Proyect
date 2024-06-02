@@ -2,6 +2,7 @@
 #define DOCTOR
 #include "Person.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Doctor:public Person{

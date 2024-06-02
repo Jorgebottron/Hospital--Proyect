@@ -3,8 +3,6 @@
 #include "Doctor.h"
 #include "Nurse.h"
 #include "Patient.h"
-#include "Medicament.h"
-#include "Hospital.h"
 #include <iostream>
 using namespace std;
 
@@ -12,14 +10,16 @@ using namespace std;
 class Expedient{
   private:
     int noExpedient;
-    Hospital hospital;
     Patient patient;
-  
+    Doctor doctor;
+    Nurse nurse;
+
   public:
     Expedient();
-    Expedient(int, Hospital);
+    Expedient(int, Patient, Doctor, Nurse);
     int getNoExpedient();
     string printInformation();
 };
+
 
 #endif
