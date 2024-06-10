@@ -11,8 +11,10 @@ class Doctor:public Person{
   public:
     Doctor();
     Doctor(string, string, int, string, string);
+    Doctor(string, string, string);
     string getSpecialty();
     string printInformation() override;
+    string printInformation(int);
 };
 
 #endif

@@ -16,7 +16,7 @@ class Person{
     string getLastName();
     int getAge();
     string getSex();
-    virtual string printInformation();
+    virtual string printInformation() = 0;
 };
 
 #endif

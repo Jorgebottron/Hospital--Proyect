@@ -2,16 +2,21 @@
 
 Patient::Patient(){
   name = "";
+  lastName = "";
   age = 0;
   sex = "";
   weight = 0.0;
+  height = 0.0;
+  bloodType = "";
   illness = "";
   room = 0;
   medicament = vector <Medicament*>();
   appointment = vector <Appointment*>();
+  expedient = Expedient();
+
 }
 
-Patient::Patient(string aName, string aLastName, int aAge, string aSex, float aWeight, float aHeight, string aBloodType, string aIllness, int aRoom, vector<Medicament*> aMedicament, vector<Appointment*> aAppointment){  
+Patient::Patient(string aName, string aLastName, int aAge, string aSex, float aWeight, float aHeight, string aBloodType, string aIllness, int aRoom, vector<Medicament*> aMedicament, vector<Appointment*> aAppointment, Expedient aExpedient){  
   name = aName;
   lastName = aLastName;
   age = aAge;
@@ -23,6 +28,7 @@ Patient::Patient(string aName, string aLastName, int aAge, string aSex, float aW
   room = aRoom;
   medicament = aMedicament;
   appointment = aAppointment;
+  expedient = aExpedient;
 }
 
 float Patient::getWeight(){
@@ -43,22 +49,31 @@ int Patient::getRoom(){
 int Patient::getNumMedicament(){
   return medicament.size();
 }
-int Patient::getNumAppointment(){
-  return appointment.size();
+string Patient::printAppointments(){
+  string msg = "No Appointment: " + to_string(appointment.size()) + "\n";
+  for(int i = 0; i < appointment.size(); i++){
+    msg += appointment[i]->printInformation();
+  }
+  return msg;
+}
+
+vector <Appointment*> Patient::getAppointment(){
+  return appointment;
 }
 
 string Patient::printInformation(){
-  string msg = "\nName: " + name + "\n" + "Last Name: " + lastName + "\n" + "Age: " + to_string(age) + "\n" + "Sex: " + sex + "\n" + "Weight: " + to_string(weight) + "kg\n" + "Height: " + to_string(height) + "cm\n" + "Blood Type: " + bloodType + "\n" +"Illness: " + illness + "\n" + "Room: " + to_string(room) + "\n";
+  string msg = name + " " + lastName + " expedient: \n\nName: " + name + "\n" + "Last Name: " + lastName + "\n" + "Age: " + to_string(age) + "\n" + "Sex: " + sex + "\n" + "Weight: " + to_string(weight) + "kg\n" + "Height: " + to_string(height) + "cm\n" + "Blood Type: " + bloodType + "\n" +"Illness: " + illness + "\n" + "Room: " + to_string(room) + "\n";
   
   msg += "\nMedicaments: " + to_string(getNumMedicament()) + " medicament(s): \n";
   for(int i=0; i< getNumMedicament(); i++){
     msg += "Medicament: " + medicament[i]->printInformation() + "\n";
   }
   
-  msg += "\nAppointments: " + to_string(getNumAppointment()) + " appointment(s): \n";
-  for(int i=0; i< getNumAppointment(); i++){
-    msg += "Appointments: " + appointment[i]->printInformation() + "\n";
-  }
-  
+  msg += "\nAppointments: " + printAppointments() + "\n";
+  msg += expedient.printInformation() + "\n";
   return msg;
+}
+
+void Patient::addAppointment(Appointment* aAppointment){
+  appointment.push_back(aAppointment);
 }

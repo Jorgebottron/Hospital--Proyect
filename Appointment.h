@@ -7,15 +7,21 @@ class Appointment{
   private:
     int noAppointment;
     string date;
-    string time;
+    int hour;
+    int minute;
 
   public:
     Appointment();
-    Appointment(int, string, string);
+    Appointment(int, string, int, int);
     int getNoAppointment();
     string getDate();
-    string getTime();
+    int getHour();
+    void setHour(int hour);
+    int getMinute();
+    void setMinute(int minute);
     string printInformation();
+    Appointment operator +(const Appointment &val);
+    Appointment operator -(const Appointment &val);
 };
 
 #endif
